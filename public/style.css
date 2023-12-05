@@ -1,5 +1,33 @@
+*{
+  margin: 0;
+  padding: 0;
+}
 .headingStyle{
   background-color: purple;
   color: #fff;
   padding: 5px 10px;
+  text-align: center;
+}
+
+.card{
+  background-color: #ffdaff;
+  margin: 10px;
+  padding: 30px;
+  box-shadow: 2px 2px 2px rgba(0,0,0);
+}
+
+.cardTitle{
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.cardDescription{
+  text-align: justify;
+}
+
+.cardFooter{
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
 }
