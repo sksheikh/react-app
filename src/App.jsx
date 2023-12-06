@@ -1,21 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import Card from './Card';
+import Card from './Card'
+import data from './data.json'
 // import './App.css'
 
-const title = 'Card Title';
-const description = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, quas? Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, quas?';
-const date = new Date().getFullYear();
 
 function App() {
 
+  // let items = [];
+  // for (let i = 0; i <data.length; i++) {
+  //   items.push(<Card titleText={data[i].title} descText={data[i].desc}/>);
+  // }
+
+  // items = data.map((item) =>
+  //   <Card titleText={item.title} descText={item.desc}/>
+  // )
+  // console.log(items);
   return (
     <>
       <div>
         <h1 className='headingStyle'>React App</h1>
-        <Card titleText="Card Title" 
-          descText="card description should be here"/>
+        { data.map((item, index) => <Card key={index} titleText={item.title} descText={item.desc}/>) }
+
       </div>
 
     </>

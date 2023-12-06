@@ -1,4 +1,3 @@
-
 const date = new Date().getFullYear();
 
 function Card(props){
