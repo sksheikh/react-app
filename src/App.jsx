@@ -6,21 +6,38 @@ import { v4 as uuidv4 } from 'uuid';
 
 function App() {
 
-  // let items = [];
-  // for (let i = 0; i <data.length; i++) {
-  //   items.push(<Card titleText={data[i].title} descText={data[i].desc}/>);
-  // }
-
-  // items = data.map((item) =>
-  //   <Card titleText={item.title} descText={item.desc}/>
-  // )
-  // console.log(uuidv4());
+  const users = [
+    { 
+      'fullName': 'Sheikh Salah Uddin',
+      'age': 28,
+      'phones': [
+        { 'home': '017888', 'office': '018777'}
+      ]
+    },
+    { 
+      'fullName': 'Sheikh Salah Uddin',
+      'age': 28,
+      'phones': [
+        { 'home': '017111', 'office': '018555'}
+      ]
+    }
+  ]
   return (
     <>
       <div>
         <h1 className='headingStyle'>React App</h1>
-        { data.map((item) => <Card key={uuidv4()} titleText={item.title} descText={item.desc}/>) }
+       { users.map((user,index) => <article key={index}>
+          <p><b>Full Name:</b> {user.fullName}</p>
+          <p><b>Age:</b> {user.age}</p>
+          <p><b>Phones:</b>
+            {user.phones.map((phone,index) => <p key={index}>
+              Home: {phone.home} <br />
+              Office: {phone.office}</p>
+              )}
+           </p>
 
+          </article>)
+        }
       </div>
 
     </>
