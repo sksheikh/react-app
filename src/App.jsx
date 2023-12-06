@@ -31,8 +31,8 @@ function App() {
           <p><b>Age:</b> {user.age}</p>
           <p><b>Phones:</b>
             {user.phones.map((phone,index) => <p key={index}>
-              Home: {phone.home} <br />
-              Office: {phone.office}</p>
+              <b>Home:</b> {phone.home} <br />
+              <b>Office:</b> {phone.office}</p>
               )}
            </p>
 
