@@ -1,10 +1,10 @@
 import React from 'react'
-import ConditionaRendering from './Components/ConditionalRendering'
+import EventHandlerClass from './EVENT_HANDLER_CLASS'
 
 export default function App() {
   return (
     <div>
-      <ConditionaRendering />
+      <EventHandlerClass />
     </div>
   )
 }
