@@ -1,30 +1,35 @@
-import svgImage from './assets/react.svg'
-import './App.css'
-import { FaFacebook, FaLinkedin  } from "react-icons/fa6";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { Component } from 'react'
+import './index.css'
 
-import { Button, Card } from 'react-bootstrap';
+export default class App extends Component {
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+       count: 0
+    }
+  }
 
-function App() {
+  handleIncrement = () => {
+    this.setState({
+      count: this.state.count + 1
+    });
+  };
 
-  return (
-    <>
-      <h1>Reac Icon</h1>
-      {/* <FaFacebook className='icon'/> */}
-      {/* <FaLinkedin className='icon' /> */}
-      <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={svgImage} />
-      <Card.Body>
-        <Card.Title className='text-danger'>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
-    </>
-  )
+  handleDecrement = () => {
+    this.setState({
+      count: this.state.count - 1
+    });
+  };
+  
+  render() {
+    const {count} =this.state
+    return (
+      <div>
+        <p>Count : {count}</p>
+        <button onClick={this.handleIncrement} disabled={count===5}> + </button>
+        <button onClick={this.handleDecrement} disabled={count===0}> - </button>
+      </div>
+    )
+  }
 }
-
-export default App
