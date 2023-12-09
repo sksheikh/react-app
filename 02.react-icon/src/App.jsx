@@ -1,10 +1,10 @@
 import React from 'react'
-import EventHandlerClass from './EVENT_HANDLER_CLASS'
+import STATE_HOOK from './STATE_HOOK'
 
 export default function App() {
   return (
     <div>
-      <EventHandlerClass />
+      <STATE_HOOK />
     </div>
   )
 }
