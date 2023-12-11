@@ -3,29 +3,20 @@ import '../App.css'
 
 export default function Form() {
 
-  const inputData = {
-    name: '',
-    email: ''
+
+  const [user, setUser] = useState({name: "", email: ""});
+  const {name,email} = user;
+  const handleChange = (e) => {
+    setUser({...user,[e.target.name]: e.target.value})
+    // console.log(e.target.name)
   }
 
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-  }
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  }
+  // const {name,email} = user;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const inputData = {
-      name,
-      email
-    }
-    console.log(inputData);
+    
+    console.log(user);
   }
 
   return (
@@ -36,14 +27,14 @@ export default function Form() {
           <label htmlFor="name">Name:</label>
           <input type="text" id="name" name='name'
             value={name}
-            onChange={handleNameChange} />
+            onChange={handleChange} />
         </div>
 
         <div className='form-group'>
           <label htmlFor="email">Email:</label>
           <input type="email" id="email" name='email'
-            value={email} 
-            onChange={handleEmailChange} />
+            value={email}
+            onChange={handleChange} />
         </div>
 
         <div>
