@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import '../App.css'
 
-export default function Form() {
+export default function Form(props) {
 
+  const data = 'From child component';
+  props.onChildData(data);
 
   const [user, setUser] = useState({name: "", email: ""});
   const {name,email} = user;
