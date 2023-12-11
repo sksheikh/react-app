@@ -1,18 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Todos from './Components/Todos'
+import NewTodo from './Components/NewTodo';
 
 export default function App() {
-  const handleParentClick = (event) => {
-    console.log('Parent event:', event);
-  }
+  const todos = ['todo1','todo2'];
+  const [newTodos, setNewTodo] = useState(todos);
 
-  const handleChildClick = (event) => {
-    event.stopPropagation();
-    console.log('Child event:',event);
+  const handleNewTodo = (newTodo) => {
+    setNewTodo([...newTodos, newTodo]);
+    // console.log(newTodos);
   }
+  
   return (
-    <div onClick={handleParentClick}>
-      <h1>Welcome React</h1>
-      <button onClick={handleChildClick}>Click here</button>
+    <div >
+      <NewTodo onNewTodos={handleNewTodo}/>
+      <Todos todos={newTodos}/>
     </div>
   )
 }
