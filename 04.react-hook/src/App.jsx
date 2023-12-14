@@ -4,22 +4,31 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [todos, setTodo] = useState(null)
 
-  useEffect(() =>{
-    console.log('useEffect');
-  },[count]);
   
-  const handleCount = () => {
-    console.log('useState');
-    setCount(count + 1);
-  }
+    useEffect(() =>{
+          fetch('https://jsonplaceholder.typicode.com/todos')
+          .then((res) => {
+            return res.json()
+          })
+          .then((data) => {
+            setTodo(data)
+          })
+      },[]);
+
+  // const handleCount = () => {
+  //   console.log('useState');
+  //   setCount(count + 1);
+  // }
 
   return (
     <>
-      <h1>useEffect</h1>
-      <p>Count: {count}</p>
-      <button onClick={handleCount}>+</button>
+      <h1>Todos</h1>
+      { todos && todos.map((todo) =>
+      <p key={todo.id}>{todo.title}</p>)
+      }
+      
     </>
   )
 }
