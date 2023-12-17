@@ -2,33 +2,16 @@ import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import useFetch from './components/useFetch'
 
 function App() {
-  const [todos, setTodo] = useState(null)
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState('');
+  const url = 'https://jsonplaceholder.typicode.com/todos'
+
+  const {data, isLoading, error} = useFetch(url);
+
 
   const loadingMessage = 'Loading...'
-
-  useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/todos')
-      .then((res) => {
-        if(!res.ok){
-          throw Error('Data not found')
-        }
-        return res.json()
-      })
-      .then((data) => {
-        setTodo(data)
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setIsLoading(false);
-      })
-  }, []);
-
-  const renderTodos = todos && todos.map((todo) =>
+  const renderTodos = data && data.map((todo) =>
   <p key={todo.id}>{todo.title}</p>)
   // const handleCount = () => {
   //   console.log('useState');
