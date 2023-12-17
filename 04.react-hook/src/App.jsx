@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import './App.css'
 import useFetch from './components/useFetch'
 
@@ -13,14 +14,16 @@ function App() {
   const loadingMessage = 'Loading...'
   const renderTodos = data && data.map((todo) =>
   <p key={todo.id}>{todo.title}</p>)
-  // const handleCount = () => {
-  //   console.log('useState');
-  //   setCount(count + 1);
-  // }
+
+  const handleClick = () => {
+    toast('added successfully')
+  }
 
   return (
     <>
       <h1>Todos</h1>
+      <button onClick={handleClick}>Click Here</button>
+      <ToastContainer />
       {isLoading ?
        loadingMessage :
        renderTodos }
