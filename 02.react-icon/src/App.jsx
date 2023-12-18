@@ -11,14 +11,9 @@ export default function App() {
   }
   
   return (
-<<<<<<< HEAD
-    <div>
-      <STATE_HOOK />
-=======
     <div >
       <NewTodo onNewTodos={handleNewTodo}/>
       <Todos todos={newTodos}/>
->>>>>>> 1cb72e6c0f11e4cc2183c7a497fd01de1f1f64f0
     </div>
   )
 }
