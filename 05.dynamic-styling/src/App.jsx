@@ -1,32 +1,16 @@
 import { useEffect, useState } from 'react'
 import './App.css'
+import User from './components/User'
 
 function App() {
-  const [error, setError] = useState(true);
-  const [name, setName] = useState('');
-
-  const handleChange = (e) => {
-    setName(e.target.value);
-  }
-
-  useEffect(() => {
-    if(name.length > 4) {
-      setError(false)
-    }else[
-      setError(true)
-    ]
-  },[name])
-
+  const [user, setUser] = useState({
+    name: 'Sheikh Salah Uddin',
+    age: '28'
+  })
+  
   return (
     <>
-     <input type="text"
-      className={error ? 'invalid' : 'valid'}
-      // style={{
-      //   backgroundColor: error ? 'red' : 'green',
-      //   color: '#fff'
-      // }}
-      value={name}
-      onChange={handleChange} />
+      <User user={user}/>
     </>
   )
 }
