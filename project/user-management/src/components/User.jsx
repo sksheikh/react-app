@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { userContext } from '../useContext';
 
-export default function User({user,handleRemoveUser}) {
+export default function User({user}) {
   const {id, name} = user;
+  const {users, setUser} = useContext(userContext);
+
   const handleDelete = (id) => {
-    handleRemoveUser(id);
+    const filteredUsers = users.filter((user) => {
+      return user.id !== id;
+    });
+
+    setUser(filteredUsers);
   }
   return (
     <article className='user'>

@@ -1,8 +1,8 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Users from './components/users'
+import { useContext, useState } from 'react'
+// import './App.css'
+import Users from './components/Users'
+import { userContext } from './useContext'
+import AddNew from './components/AddNew';
 
 const userData = [
   {
@@ -15,16 +15,13 @@ const userData = [
   },
 ]
 function App() {
-  const [user, setUser] = useState(userData)
-
-  const handleRemoveUser = (id) => {
-    alert(id);
-  }
-
+  const [users, setUser] = useState(userData);
   return (
     <>
-      <Users users={user}
-        handleRemoveUser={handleRemoveUser}/>
+      <userContext.Provider value={{users, setUser}}>
+        <AddNew />
+        <Users />
+      </userContext.Provider>
     </>
   )
 }

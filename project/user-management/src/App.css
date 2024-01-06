@@ -42,12 +42,4 @@
 }
 
 
-.users{
-  display: flex;
-}
 
-.user{
-  background-color:rgb(44, 27, 6);
-  margin: 10px;
-  padding: 10px 30px;
-}

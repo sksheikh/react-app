@@ -1,12 +1,13 @@
-import React from 'react'
-import User from './user'
+import React, { useContext } from 'react'
+import User from './User'
+import { userContext } from '../useContext'
 
-export default function Users({users,handleRemoveUser}) {
-  
+export default function Users() {
+  const {users} = useContext(userContext);
   return (
     <section className='users'>
       {users.map((user) => <User key={user.id} user={user}
-        handleRemoveUser={handleRemoveUser} /> )}
+        /> )}
       
     </section>
   )
