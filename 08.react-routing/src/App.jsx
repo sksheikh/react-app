@@ -8,17 +8,28 @@ import Error from './pages/Error'
 import Navbar from './components/Navbar'
 import Blog from './pages/Blog'
 import User from './pages/User'
+import Protected from './routes/Protected'
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <>
       <BrowserRouter >
-        <Navbar />
+        <Navbar/>
+        {isLoggedIn ? 
+        <button className="nav-link" onClick={()=> setIsLoggedIn(!isLoggedIn) }>Logout</button> :
+        <button className="nav-link" onClick={()=> setIsLoggedIn(!isLoggedIn) }>Login</button>}
         <Routes >
           <Route path='/' element={<Home />} />
           <Route path='/blog' element={<Blogs />} />
-          <Route path='/blog/:title' element={<Blog />} />
+
+         
+          <Route path='/blog/:title' element={<Protected isLoggedIn={isLoggedIn}>
+            <Blog />
+          </Protected>} />
+            
+
           <Route path='/contact' element={<Contact />} />
           <Route path='/user' element={<User />} />
           <Route path='*' element={<Error />} />
