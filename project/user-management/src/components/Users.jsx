@@ -3,10 +3,11 @@ import User from './User'
 import { userContext } from '../useContext'
 
 export default function Users() {
-  const {users} = useContext(userContext);
+  const {state} = useContext(userContext);
+  console.log(state.users);
   return (
     <section className='users'>
-      {users.map((user) => <User key={user.id} user={user}
+      {state.users.map((user) => <User key={user.id} user={user}
         /> )}
       
     </section>

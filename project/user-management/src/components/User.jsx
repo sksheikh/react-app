@@ -1,16 +1,16 @@
 import React, { useContext } from 'react'
 import { userContext } from '../useContext';
 
+
 export default function User({user}) {
   const {id, name} = user;
-  const {users, setUser} = useContext(userContext);
+  const {dispatch} =  useContext(userContext);
 
   const handleDelete = (id) => {
-    const filteredUsers = users.filter((user) => {
-      return user.id !== id;
-    });
-
-    setUser(filteredUsers);
+    dispatch({
+      type: 'DELETE_USER',
+      payload: id
+    })
   }
   return (
     <article className='user'>
