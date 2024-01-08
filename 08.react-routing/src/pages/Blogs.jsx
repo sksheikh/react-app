@@ -16,11 +16,14 @@ export default function Blogs() {
   return (
     <section className='blogs'>
       {blogs.map((blog) => {
-        const {title, description} = blog;
-        return <article>
+        const {id,title, description} = blog;
+        return <article key={id}>
           <h4>{title}</h4>
           <p>{shortDescription(description, 50)}</p>
-          <Link to={title} className='nav-link'>Read more</Link>
+          {/* read more btn */}
+          <Link className='nav-link' 
+            to={title} 
+            state={blog}>Read more</Link>
         </article>
       })}
     </section>
